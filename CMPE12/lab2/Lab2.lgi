@@ -1,0 +1,177 @@
+41 2 0
+38 1
+11 416 305 443 207 0 1
+7 323 114 372 65 0 1
+7 323 68 372 19 0 1
+7 323 208 372 159 0 1
+7 323 162 372 113 0 1
+8 120 167 169 118 1 0
+8 119 216 168 167 1 0
+8 119 265 168 216 1 0
+8 119 314 168 265 1 0
+22 577 161 621 141 0 \NUL
+Part B
+22 101 355 641 335 0 \NUL
+From bottom to top, each of the switches and LEDs are treated as a binary number.
+22 52 374 708 354 0 \NUL
+If the bottom switch is flipped, the bottom LED lights up and the seven segment display displays a 1.
+22 23 393 737 373 0 \NUL
+If the second to bottom switch is flipped, the second to bottom LED lights up and the hex display displays a 2.
+22 61 412 710 392 0 \NUL
+In other words, the LEDs that are not lit up represents "0" and the ones that are lit up represents "1"
+22 82 431 699 411 0 \NUL
+Then the hex display displays the number that corresponds to the binary number, for example,
+22 154 450 563 430 0 \NUL
+3 when the LEDs are represented as unlit, unlit, lit, lit, or 0011.
+22 565 48 638 28 0 \NUL
+Andy Chen
+22 539 71 670 51 0 \NUL
+achen81@ucsc.edu
+22 446 94 778 74 0 \NUL
+Lab 2: Introduction To Logic With MultiMedia Logic
+22 544 117 664 97 0 \NUL
+Due Date: 1/26/18
+22 511 139 702 119 0 \NUL
+Section 01D: Carlos Ramirez
+22 539 71 670 51 0 \NUL
+achen81@ucsc.edu
+22 446 94 778 74 0 \NUL
+Lab 2: Introduction To Logic With MultiMedia Logic
+22 544 117 664 97 0 \NUL
+Due Date: 1/26/18
+22 511 139 702 119 0 \NUL
+Section 01D: Carlos Ramirez
+22 544 117 664 97 0 \NUL
+Due Date: 1/26/18
+22 565 48 638 28 0 \NUL
+Andy Chen
+1 166 142 324 43
+1 165 191 324 89
+1 165 240 324 137
+1 165 289 324 183
+1 166 142 417 271
+1 165 191 417 277
+1 165 240 417 283
+1 165 289 417 289
+38 2
+8 61 128 110 79 1 0
+8 60 180 109 131 1 0
+8 59 230 108 181 1 0
+22 19 113 51 93 0 \NUL
+In[0]
+22 18 167 50 147 0 \NUL
+In[1]
+22 17 217 49 197 0 \NUL
+In[2]
+20 135 114 194 95 0
+In[0]
+20 135 165 194 146 0
+In[1]
+20 134 215 193 196 0
+In[2]
+7 742 341 791 292 0 1
+19 132 267 191 248 0
+In[0]
+19 132 305 191 286 0
+In[1]
+19 131 343 190 324 0
+In[2]
+3 336 226 385 177 1 0
+4 605 341 654 292 2 0
+5 295 282 344 233 0
+5 295 320 344 271 0
+5 295 358 344 309 0
+3 387 320 436 271 1 0
+3 385 385 434 336 1 0
+3 384 432 433 383 1 0
+22 689 41 732 21 0 \NUL
+Part C
+22 80 455 669 435 0 \NUL
+Three switches are connected to the signal sender is then connected to the signal receiver
+22 9 474 796 454 0 \NUL
+The signal receviers are then represented as the switches that are named and are passed through each respective gates
+22 61 493 689 473 0 \NUL
+that would result in the same outcome as the truth table provided in the PDF. From top to bottom,
+22 9 550 796 530 0 \NUL
+and the fourth represents A'BC. The four AND gates are then connected to a single OR gate that connects to the LED light,
+22 67 569 776 549 0 \NUL
+and, if any switches that are flipped that corresponds to what the AND gates consider true, the LED lights up, 
+22 88 588 675 568 0 \NUL
+which says that the input from both the truth table and switches are considered "1" or true.
+22 61 531 716 511 0 \NUL
+A'B'C' where A, B, and C are passed through the inverter gates. The third AND gate represents A'BC',
+22 41 512 750 492 0 \NUL
+ the first gate is represented as ABC where A = In[0], B = In[1], and C = In[2]. The second AND gate represents
+1 107 103 136 104
+1 106 155 136 155
+1 105 205 135 205
+1 188 257 337 187
+1 188 295 337 201
+1 187 333 337 215
+1 188 257 296 257
+1 188 295 296 295
+1 187 333 296 333
+1 341 257 388 281
+1 341 295 388 295
+1 341 333 388 309
+1 341 257 386 346
+1 188 295 386 360
+1 341 333 386 374
+1 341 257 385 393
+1 188 295 385 407
+1 187 333 385 421
+1 382 201 606 302
+1 433 295 606 311
+1 431 360 606 321
+1 430 407 606 330
+1 651 316 743 316
+38 3
+22 663 38 707 18 0 \NUL
+Part D
+8 70 142 119 93 1 1
+8 104 243 153 194 1 0
+8 104 306 153 257 1 0
+34 241 157 290 108 0 10
+7 482 266 531 217 0 1
+35 301 229 350 180 0 1
+35 300 292 349 243 0 1
+3 397 266 446 217 0 0
+22 76 369 644 349 0 \NUL
+The push button calls on the RNG to randomly generate the number, then the outputs of
+22 78 387 641 367 0 \NUL
+the RNG is connected to the two XNOR gates where it will compare the switches to the 
+22 106 406 586 386 0 \NUL
+two bits that the RNG generated. For example, the XNOR gates return true
+22 74 444 656 424 0 \NUL
+This gate compares the first bit to the first switch and the second bit to the second switch.
+22 11 501 755 481 0 \NUL
+BOTH of the user inputs are the same as the RNG bits, and, if they are the same, it returns 1 and lights up the LED
+22 157 482 587 462 0 \NUL
+The two XNORS are then connected to the AND gate to ensure that
+22 21 425 738 405 0 \NUL
+if the first bit is 1 and if the first switch is flipped but returns 0 if the switch does not correspond to the RNG bit.
+22 21 463 782 443 0 \NUL
+The XNOR gate then returns a 1 if both the bit and switch are the same (e.g 0 0 or 1 1) and 0 if they are not the same. 
+1 116 117 242 117
+1 287 147 302 190
+1 150 218 302 218
+1 287 153 301 253
+1 150 281 301 281
+1 347 204 398 227
+1 346 267 398 255
+1 443 241 483 241
+39 16777215
+47 0
+40 1 6 6
+50 800 600
+51 0 100
+30
+System
+16
+700
+0
+0
+0
+0
+0
+34

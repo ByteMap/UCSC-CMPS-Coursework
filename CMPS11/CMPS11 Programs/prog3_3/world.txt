@@ -1,0 +1,49 @@
+Entry Way
+
+M110
+frog
+sword
+mushroom
+
+a kitchen
+pot
+Charlie!
+
+Charlie's office
+quiz3
+mushroom
+
+what looks like a dorm
+mushroom
+
+*****
+Entry Way
+a room with many shelves
+a room with a table
+a room with no windows
+what lookss like a cellar
+
+a room with many shelves
+Entry Way
+a room with a table
+a room with no windows
+what lookss like a cellar
+
+a room with a table
+a room with many shelves
+Entry Way
+a room with no windows
+what lookss like a cellar
+
+a room with no windows
+a room with many shelves
+a room with a table
+blocked
+what lookss like a cellar
+
+what lookss like a cellar
+a room with many shelves
+a room with a table
+a room with no windows
+blocked
+blocked

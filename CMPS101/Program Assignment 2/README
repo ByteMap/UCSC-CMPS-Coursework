@@ -1,0 +1,18 @@
+Name: Andy Chen
+CruzID: achen81
+Assignment Name: Programming Assignment 2
+
+Files Included:
+1. List.c
+   -This file is the ADT list that will be used in Lex.java
+2. ListClient.c
+   -This file tests if my List.c works 
+3. Lex.c
+   -This file is the actual program that uses List.c to sort any input file and output
+    it back in alphabetical order
+4. Makefile
+   -This file makes the .o files for the .c files listed above
+5. README
+   -This file just describes what I have submitted, name, and any additional notes.
+6. List.h
+   -This file is the header file for List.c

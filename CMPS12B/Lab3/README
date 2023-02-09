@@ -1,0 +1,16 @@
+Name: Andy Chen
+Student ID: 1537306
+-------------------------------------------------------
+Files inside Lab3 folder:
+1. MakeFile
+2. FileReverse.java
+3. gettysburg-reversed.txt
+4. gettysburg.txt
+5. out.txt
+6. README
+-------------------------------------------------------
+Resources Used:
+1. Used the Java API in order to understand the concept and the
+   usage of the .charAt() method in order to implement it for this
+   lab.
+

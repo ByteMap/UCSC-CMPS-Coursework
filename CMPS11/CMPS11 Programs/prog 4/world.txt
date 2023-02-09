@@ -1,0 +1,52 @@
+Entry Way
+
+a room with many shelves
+ancient book
+
+a room with a table
+empty vial
+sword
+
+a room with no windows
+golds
+diamonds
+emeralds
+skeleton
+dragon
+
+a hot room with a furnace
+anvil
+coal
+fire
+
+*****
+Entry Way
+a room with many shelves
+a room with a table
+a room with no windows
+what lookss like a cellar
+
+a room with many shelves
+Entry Way
+a room with a table
+a room with no windows
+what lookss like a cellar
+
+a room with a table
+a room with many shelves
+Entry Way
+a room with no windows
+what lookss like a cellar
+
+a room with no windows
+a room with many shelves
+a room with a table
+blocked
+what lookss like a cellar
+
+what lookss like a cellar
+a room with many shelves
+a room with a table
+a room with no windows
+blocked
+blocked

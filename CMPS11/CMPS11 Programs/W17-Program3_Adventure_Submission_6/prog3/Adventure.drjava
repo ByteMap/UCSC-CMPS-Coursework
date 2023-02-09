@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20140826-r5761">
+  <project autorefresh="false" main="Adventure" manifest="" root="" work="">
+    <createjar file="adventure3.jar" flags="5"/>
+    <source>
+      <file active="true" name="Thing.java" package="" timestamp="18-Dec-2016 15:28:29">
+        <select from="160" to="160"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Adventure.java" package="" timestamp="18-Dec-2016 15:50:41">
+        <select from="160" to="160"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Player.java" package="" timestamp="18-Dec-2016 15:57:18">
+        <select from="160" to="160"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Room.java" package="" timestamp="18-Dec-2016 16:03:01">
+        <select from="160" to="160"/>
+        <scroll column="0" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches>
+      <watch name="name"/>
+      <watch name="room"/>
+      <watch name="otherName"/>
+    </watches>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

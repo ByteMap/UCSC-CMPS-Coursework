@@ -1,0 +1,82 @@
+Script started on Fri Mar  3 10:25:36 2017
+ [?1034hbash-3.2$ java Adventure
+Welcome to Charlie's Mushroom Adventure!
+In this game, you need to navigate your way around four randomly connected rooms,
+collect all three mushrooms and return them to Charlie in time for him to make soup.
+Be careful, the rooms do NOT obey normal rules. 
+You might go out the north door of room 1 to enter room 2, 
+but going out the south door of room 2 will not necessarily take you back into room 1.
+Beware! There is also a terrifying frog guarding one of the mushrooms. 
+Defeat the frog by typing 'slay', but make sure you have a sword first!
+You can move around by typing north, south, east, or west.
+You can see what is in the room you are in by typing look.
+You can pick things up by typing 'pickup thing' where thing is what you see in the room.
+You can drop things you are carrying by typing 'drop thing' where thing names something you have.
+You can smell mushrooms by typing 'smell'. 
+You can tickle Charlie if you're in the same room as him by typing 'tickle'. 
+You can see your status by typing status and quit by typing quit.
+
+north
+You just entered Entry Way
+south
+You just entered a kitchen
+look
+You see:
+pot
+Charlie!
+
+west
+You just entered what looks like a dorm
+look
+You see:
+mushroom
+
+pickup mushroom
+You now have mushroom
+west
+You just entered a kitchen
+drop mushroom
+You dropped mushroom
+east
+You just entered M110
+look
+You see:
+frog
+sword
+mushroom
+
+pickup sword
+You now have sword
+slay frog
+You have slain the evil frog.
+pickup mushroom
+You now have mushroom
+east
+You just entered a kitchen
+drop mushroom
+You dropped mushroom
+north
+You just entered Entry Way
+west
+You just entered what looks like a dorm
+east
+You just entered Charlie's office
+look
+You see:
+quiz3
+mushroom
+
+pickup mushroom
+You now have mushroom
+south
+You just entered M110
+east
+You just entered a kitchen
+drop mushroom
+You dropped mushroom
+You got all the mushrooms to Charlie in time for his soup.
+Thanks for playing!
+bash-3.2$ exit
+exit
+
+Script done on Fri Mar  3 10:27:10 2017

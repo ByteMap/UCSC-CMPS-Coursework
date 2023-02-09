@@ -1,0 +1,46 @@
+41 2 0
+38 1
+8 201 231 250 182 1 0
+7 323 231 372 182 2 1
+22 578 32 651 12 0 \NUL
+Andy Chen
+22 552 55 683 35 0 \NUL
+achen81@ucsc.edu
+22 459 78 791 58 0 \NUL
+Lab 2: Introduction To Logic With MultiMedia Logic
+22 557 101 677 81 0 \NUL
+Due Date: 1/26/18
+22 524 123 715 103 0 \NUL
+Section 01D: Carlos Ramirez
+22 552 55 683 35 0 \NUL
+achen81@ucsc.edu
+22 459 78 791 58 0 \NUL
+Lab 2: Introduction To Logic With MultiMedia Logic
+22 557 101 677 81 0 \NUL
+Due Date: 1/26/18
+22 524 123 715 103 0 \NUL
+Section 01D: Carlos Ramirez
+22 557 101 677 81 0 \NUL
+Due Date: 1/26/18
+22 578 32 651 12 0 \NUL
+Andy Chen
+22 598 144 640 124 0 \NUL
+Part A
+22 94 263 546 243 0 \NUL
+Whenever a switch is flipped to 1 from 0, the LED will light up yellow.
+1 324 206 247 206
+39 16777215
+47 0
+40 1 6 6
+50 800 600
+51 0 100
+30
+System
+16
+700
+0
+0
+0
+0
+0
+34

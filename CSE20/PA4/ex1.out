@@ -1,0 +1,96 @@
+Welcome to Hangman Game!
+
+Please choose a size of a word to be guessed [3 - 12, default any]: The word size is set to 3.
+Please choose a number of lives [1 - 10, default 5]: You have 1 lives.
+
+Letters chosen: 
+__  __  __   lives: 1 O
+
+Please choose a new letter > 
+You guessed right!
+
+Letters chosen: A
+__  A  __   lives: 1 O
+
+Please choose a new letter > 
+Your guessed wrong, you lost one life.
+
+Letters chosen: A, C
+__  A  __   lives: 0 x
+
+Please choose a new letter > 
+You guessed right!
+
+Letters chosen: A, C, B
+B  A  __   lives: 0 x
+
+Please choose a new letter > 
+You guessed right!
+
+Congratulations!!! You won! The word was BAT!
+
+Would you like to play again [Y/N]? 
+Please choose a size of a word to be guessed [3 - 12, default any]: The word size is set to 5.
+Please choose a number of lives [1 - 10, default 5]: You have 5 lives.
+
+Letters chosen: 
+__  __  __  __  __   lives: 5 OOOOO
+
+Please choose a new letter > 
+You guessed right!
+
+Letters chosen: E
+__  __  E  __  __   lives: 5 OOOOO
+
+Please choose a new letter > 
+Your guessed wrong, you lost one life.
+
+Letters chosen: E, A
+__  __  E  __  __   lives: 4 xOOOO
+
+Please choose a new letter > 
+You have already chosen this letter.
+
+Please choose a new letter > 
+You guessed right!
+
+Letters chosen: E, A, S
+__  __  E  S  S   lives: 4 xOOOO
+
+Please choose a new letter > 
+Your guessed wrong, you lost one life.
+
+Letters chosen: E, A, S, N
+__  __  E  S  S   lives: 3 xxOOO
+
+Please choose a new letter > 
+Your guessed wrong, you lost one life.
+
+Letters chosen: E, A, S, N, T
+__  __  E  S  S   lives: 2 xxxOO
+
+Please choose a new letter > 
+Your guessed wrong, you lost one life.
+
+Letters chosen: E, A, S, N, T, C
+__  __  E  S  S   lives: 1 xxxxO
+
+Please choose a new letter > 
+Your guessed wrong, you lost one life.
+
+Letters chosen: E, A, S, N, T, C, M
+__  __  E  S  S   lives: 0 xxxxx
+
+Please choose a new letter > 
+You guessed right!
+
+Letters chosen: E, A, S, N, T, C, M, R
+__  R  E  S  S   lives: 0 xxxxx
+
+Please choose a new letter > 
+Your guessed wrong, you lost one life.
+
+You lost! The word was DRESS!
+
+Would you like to play again [Y/N]? 
+Goodbye!

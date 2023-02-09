@@ -1,0 +1,19 @@
+Name: Andy Chen
+CruzID: achen81
+Assignment Name: Programming Assignment 1
+
+Files Included:
+1. List.java
+   -This file is the ADT list that will be used in Lex.java
+2. ListClient.java
+   -This file tests if my List.java works 
+3. Lex.java
+   -This file is the actual program that uses List.java to sort any input file and output
+    it back in alphabetical order
+4. Makefile
+   -This file makes the jar files for the .java files listed above
+5. README
+   -This file just describes what I have submitted, name, and any additional notes.
+
+Additional Notes:
+Collaborated with Suhas Mohan on thinking of pseudocode for List.java.

@@ -1,0 +1,16 @@
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'products.css') }}"/>
+{{ extend 'layout.html' }}
+<a href="{{ = URL('default', 'index') }}">
+    <button class="new-product-button hover-blue">List of all products</button>
+  </a>
+{{if auth.user is not None: }}
+<div class="main_content">
+	
+	{{for r in rows:}}
+	<div class="starred-products">
+		<div class="starred-item">Item name: {{=r.item_name}}</div>
+		<div class="starred-item-salesprice">Item Salesprice: {{=r.item_salesprice}} </div>
+	</div>
+	{{pass}}
+</div>
+{{pass}}

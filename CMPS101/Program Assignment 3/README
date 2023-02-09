@@ -1,0 +1,20 @@
+Name: Andy Chen
+CruzID: achen81
+Assignment Name: Programming Assignment 1
+
+Files Included:
+1. List.java
+   -This file is the ADT list that will be used in Matrix.java
+2. ListTest.java
+   -This file tests if my List.java works
+3. Matrix.java
+   -This file is the ADT that will create a matrix from Sparse.java
+4. MatrixClient.java
+   -This file tests if my Matrix.java works 
+5. Sparse.java
+   -This file is the actual program that uses Matrix.java to create two matrices and print      
+    out the methods that it calls in Matrix.java
+6. Makefile
+   -This file makes the jar files for the .java files listed above
+7. README
+   -This file just describes what I have submitted, name, and any additional notes.

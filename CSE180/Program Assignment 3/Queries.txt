@@ -1,0 +1,157 @@
+Q1:
+SELECT name, extract(year FROM CURRENT_DATE)::int - birthyear as age FROM actors;
+          name           | age 
+-------------------------+-----
+ Kurt Russell            |  69
+ Sigourney Weaver        |  71
+ Linda Hamilton          |  64
+ Michael Biehn           |  64
+ Arnold Schwarzenegger   |  73
+ Bill Murray             |  70
+ Jesse Eisenberg         |  37
+ Emma Stone              |  32
+ Woody Harrelson         |  59
+ Natalie Portman         |  39
+ Rachel McAdams          |  42
+ Jonah Hill              |  37
+ Jude Law                |  48
+ Mary Elizabeth Winstead |  36
+(14 rows)
+
+Q2:
+SELECT split_part(name::TEXT, ' ', 1) first_name, split_part(name::TEXT, ' ', 2) last_name FROM actors;
+ first_name |   last_name    
+------------+----------------
+ Kurt       | Russell
+ Sigourney  | Weaver
+ Linda      | Hamilton
+ Michael    | Biehn
+ Arnold     | Schwarzenegger
+ Bill       | Murray
+ Jesse      | Eisenberg
+ Emma       | Stone
+ Woody      | Harrelson
+ Natalie    | Portman
+ Rachel     | McAdams
+ Jonah      | Hill
+ Jude       | Law
+ Mary       | Elizabeth
+(14 rows)
+
+Q3:
+SELECT MIN(imdb_rating) minimum_rating, MAX(imdb_rating) maximum_rating, AVG(imdb_rating) average_rating FROM imdb;
+ minimum_rating | maximum_rating |  average_rating  
+----------------+----------------+------------------
+            6.2 |            8.4 | 7.76999998092651
+(1 row)
+
+Q4:
+SELECT SUM(ages) combined_age, AVG(ages) average_age, MIN(ages) minimum_age, MAX(ages) maximum_age FROM (SELECT gender, extract(year FROM CURRENT_DATE)::int - birthyear as ages FROM actors) as age GROUP BY age.gender;
+ combined_age |     average_age     | minimum_age | maximum_age 
+--------------+---------------------+-------------+-------------
+          284 | 47.3333333333333333 |          32 |          71
+          457 | 57.1250000000000000 |          37 |          73
+(2 rows)
+
+Q5:
+SELECT subquery.title, STRING_AGG(name, ';') actors FROM actors JOIN (SELECT * FROM movieroles JOIN movies on movieroles.movieid = movies.movieid) as subquery ON actors.actorid=subquery.actorid GROUP BY subquery.title;
+               title                |                       actors                       
+------------------------------------+----------------------------------------------------
+ The Terminator                     | Linda Hamilton;Michael Biehn;Arnold Schwarzenegger
+ Ghostbusters                       | Bill Murray
+ Sherlock Holmes: A Game of Shadows | Jude Law;Rachel McAdams
+ Alien                              | Sigourney Weaver
+ Superbad                           | Emma Stone
+ Zombieland                         | Bill Murray
+ The Thing                          | Kurt Russell;Mary Elizabeth Winstead
+(7 rows)
+
+Q6:
+SELECT movies.* FROM movies, (SELECT imdb.movieid, AVG(imdb_rating + rating)/2 as average_rating FROM imdb, reviews WHERE imdb.movieid=reviews.movieid GROUP BY imdb.movieid ORDER BY average_rating DESC LIMIT 3) as subquery WHERE subquery.movieid = movies.movieid;
+ movieid |    title     |          genre          | year |    director    
+---------+--------------+-------------------------+------+----------------
+       0 | The Thing    | Horror, Mystery, Sci-Fi | 1982 | John Carpenter
+       2 | 1917         | Drama, War              | 2019 | Sam Mendes
+       6 | Ghostbusters | Action, Comedy, Fantasy | 1984 | Ivan Reitman
+(3 rows)
+
+Q7:
+SELECT movieid, CHAR_LENGTH(review_text) char_count, (CHAR_LENGTH(review_text) - CHAR_LENGTH(REPLACE(review_text, '.', ''))/CHAR_LENGTH('.')) sentence_count FROM reviews;
+ movieid | char_count | sentence_count 
+---------+------------+----------------
+       3 |       1624 |             14
+       5 |        491 |              9
+       7 |        795 |              5
+       6 |        442 |              4
+       2 |        526 |             15
+       1 |        266 |              2
+       8 |        903 |             16
+       9 |         81 |              1
+       4 |       1921 |             15
+       0 |        650 |              7
+(10 rows)
+
+Q8:
+SELECT REGEXP_SPLIT_TO_TABLE(genre, ', ') genres, COUNT(movieid) movie_count FROM movies GROUP BY genres;
+  genres   | movie_count 
+-----------+-------------
+ Action    |           4
+ Adventure |           3
+ Comedy    |           3
+ Crime     |           1
+ Drama     |           1
+ Fantasy   |           1
+ Horror    |           4
+ Mystery   |           2
+ Sci-Fi    |           5
+ War       |           1
+(10 rows)
+
+Q9:
+SELECT name actors, (year-birthyear) age_performed, title movie_title FROM actors, movieroles, movies WHERE actors.actorid=movieroles.actorid AND movieroles.movieid=movies.movieid;
+         actors          | age_performed |            movie_title             
+-------------------------+---------------+------------------------------------
+ Kurt Russell            |            31 | The Thing
+ Mary Elizabeth Winstead |            27 | The Thing
+ Bill Murray             |            34 | Ghostbusters
+ Bill Murray             |            59 | Zombieland
+ Jude Law                |            39 | Sherlock Holmes: A Game of Shadows
+ Rachel McAdams          |            33 | Sherlock Holmes: A Game of Shadows
+ Emma Stone              |            19 | Superbad
+ Sigourney Weaver        |            30 | Alien
+ Linda Hamilton          |            28 | The Terminator
+ Michael Biehn           |            28 | The Terminator
+ Arnold Schwarzenegger   |            37 | The Terminator
+(11 rows)
+
+Q10:
+SELECT REGEXP_SPLIT_TO_TABLE(genre, ', ') genres, AVG(rating) average_genre_rating FROM movies, reviews WHERE movies.movieid=reviews.movieid GROUP BY genres;
+  genres   | average_genre_rating 
+-----------+----------------------
+ Action    |                 8.25
+ Adventure |     7.66666666666667
+ Comedy    |     8.33333333333333
+ Crime     |                    6
+ Drama     |                   10
+ Fantasy   |                   10
+ Horror    |                 7.75
+ Mystery   |                  8.5
+ Sci-Fi    |                    8
+ War       |                   10
+(10 rows)
+
+Q11:
+SELECT title, ABS(reviews.rating-imdb.imdb_rating) abs_difference_rating, CASE WHEN reviews.rating > imdb.imdb_rating THEN 'customer' WHEN imdb.imdb_rating > reviews.rating THEN 'imdb' ELSE NULL END AS which_is_higher FROM movies, reviews, imdb WHERE imdb.movieid=movies.movieid AND reviews.movieid=movies.movieid;
+               title                | abs_difference_rating | which_is_higher 
+------------------------------------+-----------------------+-----------------
+ The Thing                          |                   1.9 | customer
+ The Thing                          |                   0.8 | customer
+ 1917                               |                   1.6 | customer
+ Jurassic Park                      |                   0.9 | customer
+ Alien                              |                   2.4 | imdb
+ The Terminator                     |                     0 | 
+ Ghostbusters                       |                   2.2 | customer
+ Zombieland                         |                   0.4 | customer
+ Sherlock Holmes: A Game of Shadows |                   1.5 | imdb
+ Superbad                           |                   0.6 | imdb
+(10 rows)

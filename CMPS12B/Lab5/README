@@ -1,0 +1,17 @@
+Name: Andy Chen
+Student ID: 1537306
+-------------------------------------------------------
+Files inside Lab3 folder:
+1. queueClient.c
+2. queue.c
+3. queue.h
+4. input.txt
+5. analysis.txt
+6. Makefile
+7. README
+-------------------------------------------------------
+Resources Used:
+1. A tutor had helped me with a memory leak problem, which, led me to
+   create the freeAll() method that frees all the nodes that are not dequeued
+   once the program has finished running through the input file.
+   

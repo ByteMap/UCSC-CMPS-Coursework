@@ -1,0 +1,12 @@
+{{ extend 'layout.html' }}
+
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'movie-details.css') }}"/>
+
+<div class="movie-details-container">
+    <div class="movie-details">
+        <h1 class="movie-details-title">{{ = movie.movie_title }}</h1>
+        <img class="movie-details-img" src="{{ = movie.img_src }}"/>
+        <p class="movie-details-description">{{ = movie.movie_description }}</p>
+        <div class="movie-details-date"><strong>Release Date: </strong>{{ = movie.movie_release_date }}</div>
+    </div>
+</div>

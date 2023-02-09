@@ -1,0 +1,20 @@
+Name: Andy Chen
+Student ID: 1537306
+-----------------------------------
+Files Included:
+1.Bishop.java
+2.Chessboard.java
+3.Chesspiece.java
+4.King.java
+5.List.java
+6.Node.java
+7.Queen.java
+8.Rook.java
+9.test-input.txt
+10.test-output.txt
+11.Makefile
+12.README
+-----------------------------------
+Note:
+Used the Java API in order to learn more about the java.lang 
+method of Character.digit() and Character.isUpperCase() methods

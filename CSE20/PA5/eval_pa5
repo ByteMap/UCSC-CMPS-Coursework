@@ -1,0 +1,301 @@
+#! /bin/bash
+# eval_pa5 - grades PA5 performance and specification
+#
+
+EXITCODE=0
+REQ_FILES="tictac.py board.py player.py"
+SOURCES="tictac.py"
+SOURCEBOARD="board.py"
+SOURCEPLAYER="player.py"
+COMMENTS="author date file input output"
+CHECKS="while if "
+METHODS="list string"
+METHODSBOARD="__init__ get_size get_winner set isempty isdone show"
+METHODSPLAYER="__init__ get_sign get_name choose"
+DATA="ex1 ex2"
+MAIN=python3
+REPORT=grade
+GRADE=0
+
+echo "
+Programming Assignment 5
+**********************************
+Specification :" >> $REPORT
+
+#
+# checks files by filenames
+#
+for f in $REQ_FILES
+do 
+    if [ -e $f -a -s $f ]
+    then
+        echo "$f is present" >> $REPORT
+        ((counter = counter + 1))
+    else
+        echo "$f is named incorrectly or absent" >> $REPORT 
+    fi
+done
+
+if [[ "$counter" == 3 ]]
+then
+    echo "   -> all files present +5 points" >> $REPORT
+    ((GRADE = GRADE + 5))
+else
+    echo "missing or incorrectly named file(s) +0 points" >> $REPORT
+fi
+
+
+
+#
+# checks comment block in tictac.py
+#
+for f in $SOURCES
+do 
+    for c in $COMMENTS
+    do
+        grep -i "#*$c" $f > comments
+        if [ -e comments -a $(wc -l < comments) -eq 0 ]
+        then
+            echo "$f does not have a comment $c +0 points" >> $REPORT
+        else
+            echo "$f has a comment $c +1 points" >> $REPORT
+            ((GRADE = GRADE + 1))
+        fi
+    done
+
+#
+# checks each loop and coditional is present and followed by a :  
+#
+
+echo "
+**********************************
+Loops and Conditionals :" >> $REPORT
+
+    for k in $CHECKS
+    do
+        grep -i "\b$k .*:" $f > checks
+        if [ -e checks -a $(wc -l < checks) -eq 0 ]
+        then
+            echo "$f does not have a check $k +0 points" >> $REPORT
+        else          
+            echo "$f has a check $k +5 points" >> $REPORT
+            ((GRADE = GRADE + 5))
+        fi
+    done
+done
+
+#
+# checks list, dictionary, string, and file methods 
+#
+
+echo "
+**********************************
+List and String Methods :" >> $REPORT
+COUNTER_LIST=0
+COUNTER_STRING=0
+for f in $REQ_FILES
+do 
+    for k in $METHODS
+    do
+        if [ $k == "list" ]
+        then
+            grep -i '\[.*\]' $f > methods
+            if [ -e methods -a $(wc -l < methods) -eq 0 ]
+            then
+                ((COUNTER_LIST = COUNTER_LIST + 0))
+            else
+                ((COUNTER_LIST = COUNTER_LIST + 1))
+            fi
+
+        elif [ $k == "string" ]
+        then
+            grep -i ".join\|.upper\|.lower\|.isalpha" $f > methods
+            if [ -e methods -a $(wc -l < methods) -eq 0 ]
+            then
+                ((COUNTER_STRING = COUNTER_STRING + 0))
+            else
+                ((COUNTER_STRING = COUNTER_STRING + 1))
+            fi 
+        fi       
+    done
+done
+
+if [[ "$COUNTER_LIST" > 0 ]]
+then
+    echo "List method(s) present +5 points" >> $REPORT
+    ((GRADE = GRADE + 5))
+else
+    echo "No list method(s) used +0 points" >> $REPORT     
+fi
+
+if [[ "$COUNTER_STRING" > 0 ]]
+then
+    echo "String method(s) present +5 points" >> $REPORT
+    ((GRADE = GRADE + 5))
+else
+    echo "No string method(s) used +0 points" >> $REPORT     
+fi
+
+
+#
+# checks board for class and methods 
+#
+
+echo "
+**********************************
+Board class and methods :" >> $REPORT
+COUNTER=0
+for f in $SOURCEBOARD
+do
+    grep -i "class Board" $f > class
+    if [ -e class -a $(wc -l < class) -eq 0 ]
+    then
+        echo "missing or incorrectly named class Board +0 points" >> $REPORT
+    else
+        echo "class Board present +5 points" >> $REPORT
+        ((GRADE = GRADE + 5))
+    fi
+
+
+    for k in $METHODSBOARD
+    do
+        grep -i "def *$k" $f > methods
+        if [ -e methods -a $(wc -l < methods) -eq 0 ]
+        then
+            echo "$f does not have the method $k" >> $REPORT
+        else
+            echo "$f has the method $k" >> $REPORT
+            ((COUNTER = COUNTER + 1))
+        fi
+    done
+done
+
+if [[ "$COUNTER" == 7 ]]
+then
+    echo "   -> all methods present +10 points" >> $REPORT
+    ((GRADE = GRADE + 10))
+else
+    echo "missing or incorrectly named method(s) +0 points" >> $REPORT     
+fi
+
+#
+# checks player for class and methods 
+#
+
+echo "
+**********************************
+Player class and methods :" >> $REPORT
+COUNTER=0
+for f in $SOURCEPLAYER
+do
+    grep -i "class Player" $f > class
+    if [ -e class -a $(wc -l < class) -eq 0 ]
+    then
+        echo "missing or incorrectly named class Player +0 points" >> $REPORT
+    else
+        echo "class Player present +5 points" >> $REPORT
+        ((GRADE = GRADE + 5))
+    fi
+
+
+    for k in $METHODSPLAYER
+    do
+        grep -i "def *$k" $f > methods
+        if [ -e methods -a $(wc -l < methods) -eq 0 ]
+        then
+            echo "$f does not have the method $k" >> $REPORT
+        else
+            echo "$f has the method $k" >> $REPORT
+            ((COUNTER = COUNTER + 1))
+        fi
+    done
+done
+
+if [[ "$COUNTER" == 4 ]]
+then
+    echo "   -> all methods present +10 points" >> $REPORT
+    ((GRADE = GRADE + 10))
+else
+    echo "missing or incorrectly named method(s) +0 points" >> $REPORT     
+fi
+
+
+
+echo "
+**********************************
+Performance :" >> $REPORT
+
+#
+# checks main application
+#
+if [ -e $SOURCES ]
+then
+
+
+#
+# checks output
+#   
+    for e in $DATA
+    do
+        $MAIN $SOURCES < $e > output 2> errors_$e &
+    PID=$!
+    sleep 2
+    kill -KILL $PID 2> /dev/null
+    echo >> $REPORT
+    echo "for input file $e:" >> $REPORT
+        if [ -e output -a $(wc -l < errors_$e) -eq 0 ]
+        then
+            if [ "$e" == "ex1" ]
+            then
+                echo "$SOURCES runs without errors for simple input +10 points" >> $REPORT
+                ((GRADE = GRADE + 10))
+            else
+                echo "$SOURCES runs without errors for repeated inputs and loops to play again +10 points" >> $REPORT
+                ((GRADE = GRADE + 10))
+            fi
+        else
+            if [ "$e" == "ex1" ]
+            then
+                echo "$SOURCES does not run correctly for simple, properly formated types of input +0 points" >> $REPORT
+                echo "      - errors can be seen in file errors_ex1" >> $REPORT
+            else
+                echo "$SOURCES does not run correctly for repeated input or looping to play again +0 points" >> $REPORT
+                echo "      - errors can be seen in file errors_ex2" >> $REPORT
+            fi
+        fi
+
+        diff -wB $e.out output >& dif_$e
+        if [ -e output -a $(wc -l < dif_$e) -eq 0 ]
+        then
+            echo "output is correct +10 points" >> $REPORT
+            ((GRADE = GRADE + 10))
+        else
+            echo "output is incorrect +0 points" >> $REPORT
+            if [ "$e" == "ex1" ]
+            then
+                echo "      - differences can be seen in file dif_ex1" >> $REPORT
+            else
+                echo "      - differences can be seen in file dif_ex2" >> $REPORT
+            fi
+        fi
+ 
+    done
+else
+    echo "$SOURCES not implemented +0 points" >> $REPORT
+fi
+
+#
+# prints grade
+# 
+                echo "
+**********************************
+Your grade is $GRADE out of 100 
+
+        
+" >> $REPORT
+
+cat $REPORT
+echo $GRADE > tmp
+#rm output comments checks methods classes
+    
+exit $EXITCODE

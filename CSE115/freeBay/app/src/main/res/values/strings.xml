@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">freeBay</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signUp">Sign Up</string>
+    <string name="forgotPassword">Forgot password?</string>
+    <string name="signIn">Go to login</string>
+    <string name="login">Login</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
+    <string name="forgotPasswordInstructions">Enter your email address below:</string>
+    <string name="resetPassword">Reset password</string>
+    <string name="back">Back</string>
+    <string name="oldEmail">Old email</string>
+    <string name="newEmail">New email</string>
+    <string name="currentPassword">Current password</string>
+    <string name="newPassword">New password</string>
+    <string name="changeEmail">Change email</string>
+    <string name="changePassword">Change password</string>
+    <string name="send">Send</string>
+    <string name="removeUser">Remove account</string>
+    <string name="sendPasswordResetEmail">Send a password reset email</string>
+    <string name="signOut">Sign Out</string>
+
+    <string-array name="sortByArray">
+        <item>Date - Newest to Oldest</item>
+        <item>Date - Oldest to Newest</item>
+        <item>Name - Alphabetical</item>
+        <item>Most Likes</item>
+        <item>Least Likes</item>
+    </string-array>
+
+    <string-array name="removeAccountAlert">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string name="addFavorite">Add to favorites</string>
+    <string name="removeFavorite">Remove favorites</string>
+    <string name="shareListing">Share listing</string>
+    <string name="reportListing">Report listing</string>
+    <string name="listingLikeCounter">Likes: </string>
+    <string name="listingLikes">Listing likes</string>
+    <string name="listingName">Listing name</string>
+    <string name="listingCondition">Listing condition</string>
+    <string name="listingDescription">Listing description</string>
+    <string name="listingEmail">Listing email</string>
+    <string name="listingPhone">Listing phone</string>
+    <string name="home">Home</string>
+    <string name="myListings">My Listings</string>
+    <string name="addListing">Add Listing</string>
+    <string name="favorites">Favorites</string>
+    <string name="accountSettings">Account</string>
+
+    <string name="cameraButton">Take a picture</string>
+    <string name="chooseImg">Choose an image</string>
+    <string name="uploadImg">Use this image</string>
+    <string name="itemImage">Image of item</string>
+    <string name="itemName">Enter the name of the item</string>
+    <string name="chooseConditionText">Choose the condition of the item:</string>
+
+    <string-array name="conditionArray">
+        <item>New</item>
+        <item>Manufacturer refurbished</item>
+        <item>Seller refurbished</item>
+        <item>Used - Like New or Open Box</item>
+        <item>Used - Very Good</item>
+        <item>Used - Good</item>
+        <item>Used - Acceptable</item>
+        <item>Broken / Defective</item>
+    </string-array>
+
+    <string name="itemDescription">Enter a description of the item (optional)</string>
+    <string name="emailInformation">Enter your email address</string>
+    <string name="phoneInformation">Enter your phone number (optional)</string>
+    <string name="submit">Submit</string>
+</resources>

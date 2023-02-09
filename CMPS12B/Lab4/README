@@ -1,0 +1,18 @@
+Name: Andy Chen
+Student ID: 1537306
+-------------------------------------------------------
+Files inside Lab3 folder:
+1. balanced.c
+2. more-input.txt
+3. more-output.txt
+4. test-input.txt
+5. test-output.txt
+6. out.txt
+7. Makefile
+8. README
+-------------------------------------------------------
+Resources Used:
+1. Used the tutorialspoint.com in order to grasp a better understanding
+   of the fgets() method implementation as well as how and why it works 
+   in order to use it to read in a file for this lab.
+   

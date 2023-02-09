@@ -1,0 +1,82 @@
+C1:
+ALTER TABLE actors ADD CONSTRAINT proper_name CHECK (name ~ '.*[\s].*' AND SPLIT_PART(name::TEXT, ' ', 1) ~ '^[A-Z].*' AND SPLIT_PART(name::TEXT, ' ', 1) ~ '.*[AEIOUaeiou]+.*' AND SPLIT_PART(name::TEXT, ' ', 1) ~ '.*[B-DF-HJ-NP-TV-Zb-df-hj-np-tv-z].*[B-DF-HJ-NP-TV-Zb-df-hj-np-tv-z].*' AND SPLIT_PART(name::TEXT, ' ', 2) ~ '^[A-Z].*' AND SPLIT_PART(name::TEXT, ' ', 2) ~ '.*[AEIOUaeiou]+.*' AND SPLIT_PART(name::TEXT, ' ', 2) ~ '.*[B-DF-HJ-NP-TV-Zb-df-hj-np-tv-z].*[B-DF-HJ-NP-TV-Zb-df-hj-np-tv-z].*');
+
+C2:
+ALTER TABLE actors ADD CONSTRAINT proper_age CHECK (extract(year FROM CURRENT_DATE)::int - birthyear >= 10 AND extract(year FROM CURRENT_DATE)::int - birthyear <= 100);
+
+C3:
+ALTER TABLE actors ADD CONSTRAINT proper_gender CHECK (gender IN ('Male', 'Female', 'Non-binary'));
+
+C4:
+ALTER TABLE reviews ADD CONSTRAINT proper_review_text CHECK (CHAR_LENGTH(review_text) <= 2000 AND (CHAR_LENGTH(review_text) - CHAR_LENGTH(REPLACE(review_text, '.', ''))/CHAR_LENGTH('.')) <= 20 AND (CHAR_LENGTH(review_text) - CHAR_LENGTH(REPLACE(review_text, ' ', ''))/CHAR_LENGTH(' ')) <= 1000 AND review_text ~'[A-Z].*');
+
+C5:
+ALTER TABLE reviews ADD CONSTRAINT proper_reviews_rating CHECK (rating >= 1.0 AND rating <= 10.0);
+ALTER TABLE imdb ADD CONSTRAINT proper_imdb_rating CHECK (imdb_rating >= 1.0 AND imdb_rating <= 10.0);
+
+C6:
+ALTER TABLE movieroles DROP CONSTRAINT movieroles_actorid_fkey, ADD FOREIGN KEY (actorid) REFERENCES actors(actorid) on DELETE CASCADE;
+ALTER TABLE movieroles DROP CONSTRAINT movieroles_movieid_fkey, ADD FOREIGN KEY (movieid) REFERENCES movies(movieid) on DELETE CASCADE;
+ALTER TABLE reviews DROP CONSTRAINT reviews_movieid_fkey, ADD FOREIGN KEY (movieid) REFERENCES movies(movieid) on DELETE CASCADE;
+ALTER TABLE imdb DROP CONSTRAINT imdb_movieid_fkey, ADD FOREIGN KEY (movieid) REFERENCES movies(movieid) on DELETE CASCADE;
+DELETE FROM movies WHERE movieid = 7;
+DELETE FROM actors WHERE actorid = 5;
+
+C7:
+INSERT INTO actors VALUES (14, 'chris hemsworth', 'Male', 1983);
+INSERT INTO actors VALUES (14, 'Earl Cameron', 'Male', 1917);
+INSERT INTO actors VALUES (14, 'Chris Hemsworth', 'N/A', 1983);
+INSERT INTO reviews VALUES (11, 7, 10, 'a. b. c. d. e. f. g. h. i. j. k. l. m. n. o. p. q. r. s. t. u. v. w. x. y. z.');
+INSERT INTO reviews VALUES(11, 7, 10.1, 'Testing');
+INSERT INTO imdb VALUES(7, 0.9, 'tt1515092');
+
+C8:
+SELECT * FROM movies M1, movies M2 WHERE M1.title = M2.title AND M1.genre = M2.genre AND M1.director <> M2.director;
+In order to verify whether the FD holds, this query first selects 2 copies of the movies table and matches the two copies'
+title and genre together in order to create the key {title, genre}. It then has the third condition where the two copies'
+director must not be the same in order to show which rows fail the FD. For instance, if the key is repeated in any of the
+rows, but the {director} is different in those rows, it means that the FD does not hold, thus returning those rows.
+
+C9:
+SELECT * FROM actors A1, actors A2 WHERE A1.name = A2.name AND A1.gender = A2.gender AND A1.birthyear <> A2.birthyear;
+The sql query first creates the key by creating 2 copies of the actors table, then matching each copies' name and gender
+column together to form the key {name, gender}. Lastly it returns all rows that does not satisfy the condition A1.birthyear <> A2.birthyear
+which means any same key implying different birthyears must be returned since it fails the FD check.
+
+C10:
+UPDATE movies SET director = 'N/A' WHERE movieid = 1;
+UPDATE actors SET name = 'Kurt Russell' WHERE actorid = 3;
+
+Q1:
+INSERT INTO movies VALUES (10, 'Iron Man', 'Action, Sci-Fi', 2008, 'Jon Favreau');
+INSERT INTO actors VALUES (14, 'Robert Downey Jr.', 'Male', 1965);
+INSERT INTO movieroles VALUES (14, 10, 'Tony Stark');
+INSERT INTO reviews VALUES (10, 10, 10.0, 'Hands down the best Marvel movie since a long time.');
+INSERT INTO imdb VALUES (10, 10.0, 'tt0371746');
+
+Q2:
+SELECT movies.title, CASE WHEN movies.movieid > 9 THEN 'True' ELSE 'False' END AS New_Movie, imdb.imdb_rating, reviews.rating FROM movies, imdb, reviews WHERE movies.movieid = imdb.movieid AND movies.movieid = reviews.movieid;
+
+Q3:
+SELECT name, CASE WHEN name = 'Robert Downey Jr.' THEN 'True' ELSE 'False' END AS New_Actor FROM actors;
+
+Q4:
+SELECT role, CASE WHEN actorid = 14 OR movieid = 10 THEN 'True' ELSE 'False' END AS New_Role FROM movieroles;
+
+Q5:
+Returns a list of actors sorted by the average rating (in descending order) of the movies that they performed in.
+SELECT name, AVG(imdb_rating+rating) average_rating FROM actors LEFT JOIN (SELECT * FROM movieroles, movies LEFT JOIN (SELECT imdb.movieid, imdb_rating, rating FROM imdb, reviews WHERE imdb.movieid = reviews.movieid) AS subquery1 ON movies.movieid = subquery1.movieid WHERE movieroles.movieid = movies.movieid) AS subquery2 ON actors.actorid = subquery2.actorid WHERE title IS NOT NULL GROUP BY name ORDER BY average_rating DESC;
+
+          name           |  average_rating  
+-------------------------+------------------
+ Robert Downey Jr.       |               20
+ Kurt Russell            | 17.0500001907349
+ Linda Hamilton          |               16
+ Arnold Schwarzenegger   |               16
+ Emma Stone              | 14.6000003814697
+ Sigourney Weaver        | 14.3999996185303
+ Jude Law                |             13.5
+ Rachel McAdams          |             13.5
+ Mary Elizabeth Winstead | 13.1999998092651
+(9 rows)
+

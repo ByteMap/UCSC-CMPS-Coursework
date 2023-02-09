@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "1088610391372",
+    "firebase_url": "https://freebay-cbb54.firebaseio.com",
+    "project_id": "freebay-cbb54",
+    "storage_bucket": "freebay-cbb54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088610391372:android:e5e478d7723734d6f4ebe9",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088610391372-321t252hvo83djvvljch4ffqtfooabj2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.test",
+            "certificate_hash": "b289e169ea9281e1ab6472e4c469bbe5ed08a4be"
+          }
+        },
+        {
+          "client_id": "1088610391372-ncudo3oedplpnvrdd8nivvuk8seqppem.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.test",
+            "certificate_hash": "b6b0431d7b20cafb610d104a49b0b6e67653b9db"
+          }
+        },
+        {
+          "client_id": "1088610391372-d1vapf4qpimlui3r91rkct0k34msqcpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZxC7X5WYh7SQ5JcnnAFPwNZvjDKxuKqk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088610391372-d1vapf4qpimlui3r91rkct0k34msqcpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

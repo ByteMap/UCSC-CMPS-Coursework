@@ -1,0 +1,89 @@
+Script started on Wed Mar 1 16:22:05 2017
+os-prompt% java Adventure
+Welcome to Yash and Max's adventure of happy fun times.
+Your goal is to find the drink enough Mountain Dew, to make your mom dissapointed in your life choices.
+You can move around by typing north, south, east, or west.
+You can see what is in the room your are in by typing look.
+You can pick things up by typing 'pickup thing' where thing is what you see in the room.
+You can drop things you are carrying by typing 'drop thing' where thing names someting you have.
+You can see your inventory by typing inventory and quit by typing quit.
+
+east
+You just entered a room with no windows
+look
+You see:
+Mountain Dew
+
+pickup Mountain Dew
+You now have Mountain Dew
+look
+You see an empty room.
+inventory
+Mountain Dew
+Available capacity = 2
+drink
+You drink that sweet sweet gamer fuel
+inventory
+Empty Bottle
+Available capacity = 2
+throw bottle
+Why would you even throw anything right now?
+nice
+Nice!
+east
+You just entered a room with many shelves
+look
+You see:
+Pokemon Emerald Cart
+RimSky
+Gears of Halo Theft Auto 7
+Mom
+
+pickup Mom
+You can't carry that. You may need to drop something first.
+throw
+You throw the empty bottle with all your might
+"How dare you, that **** at me!"
+throw
+Don't have anything, useful to throw at Mom
+west
+You just entered what looks like a cellar
+look
+You see:
+Virtual Boy
+Mountain Dew
+
+pickup Mountain Dew
+You now have Mountain Dew
+drink
+You drink that sweet sweet gamer fuel
+south
+You just entered a room with a table
+look
+You see:
+Nintendo Switch
+Mountain Dew
+
+pickup Mountain
+I don't see a Mountain
+pickup Mountain Dew
+You now have Mountain Dew
+drink
+You drink that sweet sweet gamer fuel
+north
+You just entered a room with a table
+west
+You just entered a room with no windows
+east
+You just entered a room with many shelves
+throw
+You throw the empty bottle with all your might
+"You better stahp!"
+throw
+You throw the empty bottle with all your might
+"Don't talk to me or myself ever again!"
+Congratulations, you've beaten that horrible monster that kep you from your raids
+I guess you can say RAID BOSS DOWN
+
+os-prompt% exit
+Script done on Wed Mar 1 16:27:32 2017

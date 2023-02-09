@@ -1,0 +1,203 @@
+#! /bin/bash
+# eval_pa4 - grades PA4 performance and specification
+#
+
+EXITCODE=0
+SOURCES="hangman.py"
+COMMENTS="author date file input output"
+FUNCTIONS="import_dictionary get_game_options"
+#COLON=":"
+CHECKS="while for if except"
+METHODS="list dictionary string file"
+DATA="ex1 ex2"
+MAIN=python3
+REPORT=grade
+GRADE=0
+
+echo "
+Programming Assignment 4
+**********************************
+Specification :" >> $REPORT
+
+#
+# checks files by filenames
+#
+for f in $SOURCES
+do 
+    if [ -e $f -a -s $f ]
+    then
+        echo "$f is present +1 points" >> $REPORT
+        ((GRADE = GRADE + 1))
+    else
+    echo "$f is named incorrectly or absent +0 points" >> $REPORT
+        
+    fi
+    for c in $COMMENTS
+    do
+        grep -i "#*$c" $f > comments
+        if [ -e comments -a $(wc -l < comments) -eq 0 ]
+        then
+            echo "$f does not have a comment $c +0 points" >> $REPORT
+        else
+            echo "$f has a comment $c +1 points" >> $REPORT
+            ((GRADE = GRADE + 1))
+        fi
+    done
+
+#
+# checks each loop and coditional is present and followed by a :  
+#
+
+echo "
+**********************************
+Loops, Conditionals, and Exceptions :" >> $REPORT
+
+    for k in $CHECKS
+    do
+        grep -i "\b$k .*:" $f > checks
+        if [ -e checks -a $(wc -l < checks) -eq 0 ]
+        then
+            echo "$f does not have a check $k +0 points" >> $REPORT
+        else          
+            echo "$f has a check $k +5 points" >> $REPORT
+            ((GRADE = GRADE + 5))
+        fi
+    done
+#
+# checks list, dictionary, string, and file methods 
+#
+
+echo "
+**********************************
+File, Exception, List, Dictionary and String Methods :" >> $REPORT
+
+    for k in $METHODS
+    do
+        if [ $k == "dictionary" ]
+        then
+            grep -i "= *{}" $f > methods
+            grep -i ".get[ \(]" $f >> methods
+        elif [ $k == "list" ]
+        then
+            grep -i "= *\[\]" $f > methods
+            grep -i ".append[ \(]" $f >> methods
+        elif [ $k == "string" ]
+        then
+            grep -i ".upper[ \(]" $f > methods
+            grep -i ".join[ \(]" $f >> methods
+            grep -i ".isalpha[ \(]" $f >> methods
+        else
+            grep -i "\bopen[ \(]" $f > methods
+        fi
+        
+        if [ -e methods -a $(wc -l < methods) -eq 0 ]
+        then
+            echo "$f does not have $k methods +0 points" >> $REPORT
+        else
+            echo "$f has $k methods +5 points" >> $REPORT
+            ((GRADE = GRADE + 5))
+        fi
+    done
+
+#
+# checks for each function name  
+#
+
+echo "
+**********************************
+Functions :" >> $REPORT
+
+    for k in $FUNCTIONS
+    do
+        grep -i "def *$k" $f > functions
+        if [ -e functions -a $(wc -l < functions) -eq 0 ]
+        then
+            echo "$f does not have the function $k +0 points" >> $REPORT
+        else
+            echo "$f has the function $k +2 points" >> $REPORT
+            ((GRADE = GRADE + 2))
+        fi
+    done
+
+done
+
+echo "
+**********************************
+Performance :" >> $REPORT
+
+#
+# checks main application
+#
+if [ -e $SOURCES ]
+then
+
+
+#
+# checks output
+#   
+    for e in $DATA
+    do
+        $MAIN $SOURCES < $e > output 2> errors_$e &
+    PID=$!
+    sleep 2
+    kill -KILL $PID 2> /dev/null
+    echo >> $REPORT
+    echo "for input file $e:" >> $REPORT
+        if [ -e output -a $(wc -l < errors_$e) -eq 0 ]
+        then
+            if [ "$e" == "ex1" ]
+            then
+                echo "$SOURCES runs without errors for simple input +20 points" >> $REPORT
+                ((GRADE = GRADE + 20))
+            else
+                echo "$SOURCES runs without errors for all types of input," >> $REPORT
+                echo "has correct error handling +10 points" >> $REPORT
+                ((GRADE = GRADE + 10))
+            fi
+        else
+            if [ "$e" == "ex1" ]
+            then
+                echo "$SOURCES does not run correctly for simple, properly formated types of input +0 points" >> $REPORT
+                echo "      - errors can be seen in file errors_ex1" >> $REPORT
+            else
+                echo "$SOURCES does not run correctly for all formats of string input +0 points" >> $REPORT
+                echo "      - errors can be seen in file errors_ex2" >> $REPORT
+            fi
+        fi
+
+        diff -wB $e.out output >& dif_$e
+        if [ -e output -a $(wc -l < dif_$e) -eq 0 ]
+        then
+            echo "output is correct +10 points" >> $REPORT
+            ((GRADE = GRADE + 10))
+        else
+            echo "output is incorrect +0 points" >> $REPORT
+            if [ "$e" == "ex1" ]
+            then
+                echo "      - differences can be seen in file dif_ex1" >> $REPORT
+            else
+                echo "      - differences can be seen in file dif_ex2" >> $REPORT
+            fi
+        fi
+ 
+    done
+else
+    echo "$SOURCES not implemented +0 points" >> $REPORT
+fi
+
+#
+# prints grade
+# 
+                echo "
+**********************************
+Your grade is $GRADE out of 100 
+
+        
+" >> $REPORT
+
+cat $REPORT
+echo $GRADE > tmp
+rm output comments checks methods functions
+#rm dif_* errors_* grade tmp
+    
+exit $EXITCODE

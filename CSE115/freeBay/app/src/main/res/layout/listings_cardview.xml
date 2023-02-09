@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardview_id"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:layout_margin="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B4FFFFFF"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/listingNameCard"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/listingName"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/listingImageCard"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_below="@id/listingNameCard"
+            android:background="#2d2d2d"
+            android:scaleType="centerCrop" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/buttonsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/listingImageCard"
+            android:background="@color/white"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/listingImageCard"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/favoriteButton"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:background="#00000000"
+                    android:src="@mipmap/heart_outline" />
+
+                <ImageButton
+                    android:id="@+id/shareButton"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@id/favoriteButton"
+                    android:background="#00000000"
+                    app:srcCompat="@mipmap/share_outline" />
+
+                <ImageButton
+                    android:id="@+id/thumbUpDown"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_toStartOf="@id/reportButton"
+                    android:background="#00000000"
+                    app:srcCompat="@mipmap/thumb_up_down_outline" />
+
+                <ImageButton
+                    android:id="@+id/reportButton"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="#00000000"
+                    app:srcCompat="@mipmap/report_outline" />
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

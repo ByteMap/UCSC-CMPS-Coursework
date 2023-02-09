@@ -1,0 +1,14 @@
+{{ extend 'layout.html' }}
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'movies.css') }}"/>
+
+<h1>Welcome to the MSI Movies App!</h1>
+
+{{ if auth.user is not None: }}
+  <a href="{{ = URL('default', 'insert_movie') }}">
+    <button class="new-movie-button hover-blue">Add New Movie</button>
+  </a>
+{{ pass }}
+
+<div class="all-movies">
+  {{ = grid }}
+</div>

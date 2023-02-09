@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+}
+
+body {
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.new-product-button {
+    margin-top: 15px;
+    background-color: rgb(167, 167, 167);
+    font-size: 30px;
+    padding: 10px 20px;
+}
+
+.hover-pink:hover {
+    background-color: pink;
+    cursor: pointer;
+}
+
+.hover-blue:hover {
+    background-color: powderblue;
+    cursor: pointer;
+}
+
+.all-movies {
+    margin-top: 15px;
+}

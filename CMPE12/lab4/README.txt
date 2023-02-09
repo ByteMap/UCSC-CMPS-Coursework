@@ -1,0 +1,13 @@
+Name: Andy Chen
+Email: achen81@ucsc.edu
+Student ID: 1537306
+Lab Assignment: Lab 4: DEADBEEF in MIPS
+Section Number: 01D
+
+1. In theory, N can be only as large as the size of the register. For example, if N is the user input that is then stored in a register, the register can only hold up to the maximum amount that is set with (16 bits, 32 bits, etc). If N is a number that exceeds the storage limit of the register (Example would be 16-bits) and is then programmed to be stored in that register, the program will detect that it is not possible to store data that is above 16-bits into a 16-bit register, and thus, will fail.
+
+2.After assembling my program, the range of addresses in which the string “Please enter a number: “ is one. In my program, there is only one label that is located under .data that determines the address of the string “Please enter a number: “, therefore, the range of addresses in which the string is stored is one as there is only one address that stores the string.
+
+3. Of the instructions that I have used, the pseudo-ops were the two lines of code “.text” and “.data”. These assembled instructions act as different libraries or portions of the program in order to produce the appropriate results. For example, the “.text” does not affect or change the “.data” portion of the program in any way, but instead, it tells the program to read through this certain library and produce the results. Along the way, the program will continue reading through the “text” portion of the library and will have to get the data that it calls for, and only then, the program will head off to the “.data” library and get the data that it is asked of, then return to the “text” library and continue reading through the text and perform the operations that required that data that it went to retrieve in the “data” library.
+
+4.For this program, I have used 8 registers in writing this program. I do think that I could have used fewer registers for this program as I had assigned the divisors (4, 9, and 36) into separate registers ($s2, $s3, and $s4). Instead of assigning each of them a register, I could have just simply divided $s1(The counter for the loop) by the actual number (4, 9, or 36) instead of dividing $s1 by $s2, or $s3, or $s4. Other than using three excess registers, I do not think that I could be using any less registers as my $s1 is used to store the counter for the loop, $s0 is used to store the user input, $s5 is used to store the remainder after dividing, $v0 is used to expect a service (Ending a program, print a string, or read an integer), and $a0 is used to load the address that prints out the string corresponding to that address.

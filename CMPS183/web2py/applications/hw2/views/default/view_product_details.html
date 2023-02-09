@@ -1,0 +1,10 @@
+{{ extend 'layout.html' }}
+
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'product-details.css') }}"/>
+
+<div class="product-details-container">
+    <div class="product-details">
+        <h1 class="product-details-name">{{ = products.item_name }}</h1>
+        <p class="movie-details-description">{{ = movie.movie_description }}</p>
+    </div>
+</div>

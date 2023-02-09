@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20160913-225446">
+  <project autorefresh="false" main="Adventure" manifest="" root="" work="">
+    <createjar file="adventure3.jar" flags="5"/>
+    <source>
+      <file active="true" name="Actions.java" package="" timestamp="17-Mar-2017 17:12:01">
+        <select from="3428" to="3428"/>
+        <scroll column="796" row="0"/>
+      </file>
+      <file name="Thing.java" package="" timestamp="28-Feb-2017 21:12:10">
+        <select from="3428" to="3428"/>
+        <scroll column="796" row="0"/>
+      </file>
+      <file name="Player.java" package="" timestamp="02-Mar-2017 11:52:21">
+        <select from="3428" to="3428"/>
+        <scroll column="796" row="0"/>
+      </file>
+      <file name="Dragon.java" package="" timestamp="02-Mar-2017 11:53:47">
+        <select from="3428" to="3428"/>
+        <scroll column="796" row="0"/>
+      </file>
+      <file name="Room.java" package="" timestamp="13-Mar-2017 15:02:44">
+        <select from="3428" to="3428"/>
+        <scroll column="796" row="0"/>
+      </file>
+      <file name="Sword.java" package="" timestamp="17-Mar-2017 16:48:39">
+        <select from="3428" to="3428"/>
+        <scroll column="796" row="0"/>
+      </file>
+      <file name="Fire.java" package="" timestamp="17-Mar-2017 16:55:01">
+        <select from="3428" to="3428"/>
+        <scroll column="796" row="0"/>
+      </file>
+      <file name="world.txt" package="" timestamp="17-Mar-2017 16:58:43">
+        <select from="3428" to="3428"/>
+        <scroll column="796" row="0"/>
+      </file>
+      <file name="Adventure.java" package="" timestamp="17-Mar-2017 17:09:55">
+        <select from="3428" to="3428"/>
+        <scroll column="796" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

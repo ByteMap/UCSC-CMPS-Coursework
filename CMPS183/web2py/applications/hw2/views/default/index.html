@@ -1,0 +1,17 @@
+{{ extend 'layout.html' }}
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'products.css') }}"/>
+
+<h1>Welcome to the store page!</h1>
+
+{{ if auth.user is not None: }}
+  <a href="{{ = URL('default', 'insert_product') }}">
+    <button class="new-product-button hover-blue">Add New Product</button>
+  </a>
+  <a href="{{ = URL('default', 'home') }}">
+    <button class="new-product-button hover-blue">List of favorites</button>
+  </a>
+{{ pass }}
+
+<div class="all-products">
+  {{ = grid }}
+</div>

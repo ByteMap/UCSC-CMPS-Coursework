@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20160913-225446">
+  <project autorefresh="false" main="FindAuthor" root="" work="">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="FindAuthor.java" package="" timestamp="09-Feb-2017 21:09:44">
+        <select from="8986" to="8986"/>
+        <scroll column="3861" row="0"/>
+      </file>
+      <file name="FindAuthorTest.java" package="" timestamp="13-Dec-2016 14:28:04">
+        <select from="8986" to="8986"/>
+        <scroll column="3861" row="0"/>
+      </file>
+      <file name="Signature.java" package="" timestamp="13-Dec-2016 14:28:04">
+        <select from="8986" to="8986"/>
+        <scroll column="3861" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

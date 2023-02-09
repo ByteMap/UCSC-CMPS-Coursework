@@ -1,0 +1,30 @@
+  513  ls -a
+  514  git status
+  515  ls
+  516  ls
+  517  cd 
+  518  clear
+  519  ls
+  520  pwd
+  521  git clone https://github.com/kyeasy/CSE115a-freeBay-.git
+  522  ls
+  523  cd CSE115a-freeBay-/
+  524  ls
+  525  mkdir freeBay
+  526  ls
+  527  cp -r ../Downloads/test\ -\ Copy/
+  528  cp -r ../Downloads/test\ -\ Copy/ freeBay
+  529  git status
+  530  git add -r freeBay
+  531  git add freeBay
+  532  git status
+  533  git commit -m "freeBay base"
+  534* 
+  535  git push origin master
+  536  git push origin master
+  537  clear
+  538  ls
+  539  history | tail -n 10
+  540  history | tail -n 30
+  541  history | tail -n 30 | bash_history.txt
+  542  history | tail -n 30 >> bash_history.txt

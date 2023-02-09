@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20120818-r5686">
+  <project autorefresh="false" main="Adventure" manifest="" root="" work="">
+    <createjar file="adventure3.jar" flags="5"/>
+    <source>
+      <file active="true" name="world.txt" package="" timestamp="03-Mar-2017 10:18:29">
+        <select from="68" to="68"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Adventure.java" package="" timestamp="03-Mar-2017 01:12:21">
+        <select from="68" to="68"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Room.java" package="" timestamp="03-Mar-2017 01:12:21">
+        <select from="68" to="68"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Thing.java" package="" timestamp="27-Feb-2017 13:24:45">
+        <select from="68" to="68"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Mushroom.java" package="" timestamp="02-Mar-2017 21:28:35">
+        <select from="68" to="68"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Player.java" package="" timestamp="03-Mar-2017 00:59:57">
+        <select from="68" to="68"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Charlie.java" package="" timestamp="02-Mar-2017 21:49:43">
+        <select from="68" to="68"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Frog.java" package="" timestamp="02-Mar-2017 17:07:12">
+        <select from="68" to="68"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="demo.txt" package="" timestamp="03-Mar-2017 10:14:46">
+        <select from="68" to="68"/>
+        <scroll column="0" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches>
+      <watch name="name"/>
+      <watch name="room"/>
+      <watch name="otherName"/>
+    </watches>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>
