@@ -1,0 +1,13 @@
+Question:
+Using your new httpserver with caching, perform an experiment to
+demonstrate how caching can improve performance. Do a test with
+caching turned on and compare it with the same test but with caching
+turned off.
+
+Answer:
+With my new httpserver with caching, I can see a somewhat significant
+time reduction compared to the httpserver without caching. For example
+when doing a GET request, I get 1.052s with the httpserver without
+caching and a 1.021s with the httpserver with caching. A similar time
+is outputted with doing a PUT request for a cached httpserver and a
+non-cached httpserver.
